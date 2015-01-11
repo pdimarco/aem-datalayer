@@ -1,0 +1,4 @@
+#base=source
+
+# components
+mycustom.js

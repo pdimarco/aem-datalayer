@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1420999851706
+Build-Jdk: 1.7.0_60
+Built-By: pdimarco
+Bundle-Description: Core bundle for aemdatalayer
+Bundle-ManifestVersion: 2
+Bundle-Name: aemdatalayer - Core
+Bundle-SymbolicName: adobe.ags.datalayer.core
+Bundle-Version: 0.0.1.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: adobe.ags.datalayer.core;version="1.0"
+Import-Package: adobe.ags.datalayer.core;version="[1.0,1.1)",org.apache.
+ sling.commons.osgi;version="[2.2,3)",org.apache.sling.settings;version=
+ "[1.3,2)",org.osgi.service.event;version="[1.2,2)",org.slf4j;version="[
+ 1.5,2)"
+Originally-Created-By: Apache Maven Bundle Plugin
+Service-Component: OSGI-INF/adobe.ags.datalayer.core.impl.listeners.Simp
+ leResourceListener.xml,OSGI-INF/adobe.ags.datalayer.core.impl.HelloServ
+ iceImpl.xml,OSGI-INF/adobe.ags.datalayer.core.impl.schedulers.SimpleSch
+ eduledTask.xml
+Tool: Bnd-2.1.0.20130426-122213

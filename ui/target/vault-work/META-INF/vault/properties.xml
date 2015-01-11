@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>aemdatalayer - UI</comment>
+<entry key="createdBy">pdimarco</entry>
+<entry key="name">datalayer.ui</entry>
+<entry key="created">2015-01-10T19:53:40.050-0600</entry>
+<entry key="groupId">adobe.ags</entry>
+<entry key="version">0.0.1-SNAPSHOT</entry>
+<entry key="requiresRoot">false</entry>
+<entry key="group">aemdatalayer Content Package</entry>
+<entry key="description">UI package for aemdatalayer</entry>
+<entry key="artifactId">datalayer.ui</entry>
+<entry key="path">/etc/packages/aemdatalayer Content Package/datalayer.ui.zip</entry>
+</properties>

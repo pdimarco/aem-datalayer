@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/metatype">
+    <OCD id="adobe.ags.datalayer.core.impl.schedulers.SimpleScheduledTask" name="A scheduled task" description="%adobe.ags.datalayer.core.impl.schedulers.SimpleScheduledTask.description">
+        <AD id="scheduler.expression" type="String" default="*/30\\ *\\ *\\ *\\ *\\ ?" name="%scheduler.expression.name" description="%scheduler.expression.description"/>
+        <AD id="scheduler.concurrent" type="Boolean" default="false" name="%scheduler.concurrent.name" description="%scheduler.concurrent.description"/>
+        <AD id="myParameter" type="String" name="A parameter" description="Can be configured in /system/console/configMgr"/>
+    </OCD>
+    <Designate pid="adobe.ags.datalayer.core.impl.schedulers.SimpleScheduledTask">
+        <Object ocdref="adobe.ags.datalayer.core.impl.schedulers.SimpleScheduledTask"/>
+    </Designate>
+</metatype:MetaData>
