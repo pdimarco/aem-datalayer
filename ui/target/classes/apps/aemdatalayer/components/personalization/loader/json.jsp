@@ -16,7 +16,7 @@
                     com.day.cq.security.profile.Profile,
                     com.day.cq.security.profile.ProfileManager,
                     org.apache.sling.commons.json.io.JSONWriter"
-%><%@include file="/libs/foundation/global.jsp" %><%
+%><%@include file=/"libs/foundation/global.jsp" %><%
 
     response.setContentType("application/json");
     response.setCharacterEncoding("utf-8");

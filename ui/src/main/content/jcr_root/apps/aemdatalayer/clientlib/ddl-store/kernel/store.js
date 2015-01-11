@@ -14,22 +14,22 @@
 | limitations under the License.
 */
 // Create the session store called "customstore"
-if (!CQ_Analytics.CustomStoreMgr ) {
+if (!CQ_Analytics.DataLayerStoreMgr ) {
 
     // Create the session store as a JSONStore
-    CQ_Analytics.CustomStoreMgr = CQ_Analytics.JSONStore.registerNewInstance("customstore");
+    CQ_Analytics.DataLayerStoreMgr = CQ_Analytics.JSONStore.registerNewInstance("ddl-store");
 
-	CQ_Analytics.CustomStoreMgr.currentId = "";
+	CQ_Analytics.DataLayerStoreMgr.currentId = "";
 
     // Function to load the data for the current user
-    CQ_Analytics.CustomStoreMgr.loadData = function() {
+    CQ_Analytics.DataLayerStoreMgr.loadData = function() {
 
-        console.info("Loading CustomStoreMgr data");
+        console.info("Loading DataLayerStoreMgr data");
 
         var authorizableId = CQ_Analytics.ProfileDataMgr.getProperty("authorizableId");
-        var url = "/apps/customstore/components/loader.json";
+        var url = "/apps/aemdatalayer/components/loader.json";
 
-        if ( (authorizableId !== CQ_Analytics.CustomStoreMgr.currentId) & CQ_Analytics.CustomStoreMgr.initialized ) {
+        if ( (authorizableId !== CQ_Analytics.DataLayerStoreMgr.currentId) & CQ_Analytics.DataLayerStoreMgr.initialized ) {
 
             url = CQ_Analytics.Utils.addParameter(url, "authorizableId", authorizableId);
 
@@ -48,7 +48,7 @@ if (!CQ_Analytics.CustomStoreMgr ) {
                 console.log("Error", error);
             }
 
-			CQ_Analytics.CustomStoreMgr.currentId = authorizableId;
+			CQ_Analytics.DataLayerStoreMgr.currentId = authorizableId;
             this.fireEvent("dataloaded");
 
         }
@@ -61,26 +61,26 @@ if (!CQ_Analytics.CustomStoreMgr ) {
 			this.loadData();
 
             console.info("ProfileDataMgr: update Event");
-        }, CQ_Analytics.CustomStoreMgr);
-        console.info("CustomStoreMgr: Configloaded event");
+        }, CQ_Analytics.DataLayerStoreMgr);
+        console.info("DataLayerStoreMgr: Configloaded event");
 
-	}, CQ_Analytics.CustomStoreMgr);
+	}, CQ_Analytics.DataLayerStoreMgr);
 
-    CQ_Analytics.CustomStoreMgr.addListener("initialize", function() {
+    CQ_Analytics.DataLayerStoreMgr.addListener("initialize", function() {
 		this.loadData();
         console.info("Custom Store Initialize Event");
     });
 
-    CQ_Analytics.CustomStoreMgr.addListener("dataloaded", function() {
+    CQ_Analytics.DataLayerStoreMgr.addListener("dataloaded", function() {
         console.info("Customstore data loaded");
         _satellite.track("DIRECTTEST");
     });
 
-    CQ_Analytics.CustomStoreMgr.initialized = false;
+    CQ_Analytics.DataLayerStoreMgr.initialized = false;
 
-    CQ_Analytics.CustomStoreMgr.getValue = function(service) {
-        if (CQ_Analytics.CustomStoreMgr.data) {
-            if (CQ_Analytics.CustomStoreMgr.data[service]) return  CQ_Analytics.CustomStoreMgr.data[service].value;
+    CQ_Analytics.DataLayerStoreMgr.getValue = function(service) {
+        if (CQ_Analytics.DataLayerStoreMgr.data) {
+            if (CQ_Analytics.DataLayerStoreMgr.data[service]) return  CQ_Analytics.DataLayerStoreMgr.data[service].value;
         }
         return "";
     }

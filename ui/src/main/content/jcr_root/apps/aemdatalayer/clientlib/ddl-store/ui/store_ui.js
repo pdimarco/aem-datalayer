@@ -14,24 +14,24 @@
 | limitations under the License.
 */
 
-if (CQ_Analytics.CustomStoreMgr ) {
+if (CQ_Analytics.DataLayerStoreMgr ) {
 
 
     // HTML template
-    CQ_Analytics.CustomStoreMgr.template = 
+    CQ_Analytics.DataLayerStoreMgr.template = 
         "<input class='customstore-input' type='checkbox' id='customstore-input-%key%' name='%key%' value='%key%' %checked%>" +
         "<label for='customstore-input-%key%' class='%checkedClass%'>" +
         "<div class='toggle'><div class='green'></div><div class='red'></div></div>" +
         "%label%</label>";
 
-    CQ_Analytics.CustomStoreMgr.templateRenderer = function(key, label, value) {
+    CQ_Analytics.DataLayerStoreMgr.templateRenderer = function(key, label, value) {
 
          var checkedString = ""; var checkedClass = "";
          if (value==="true") {
              checkedString = "checked='checked'";
              checkedClass  = "checked";
          }
-         var template = CQ_Analytics.CustomStoreMgr.template;
+         var template = CQ_Analytics.DataLayerStoreMgr.template;
          return template.replace(/%label%/g, label)
              .replace(/%key%/g, key)
              .replace(/%checked%/g, checkedString)
@@ -39,15 +39,15 @@ if (CQ_Analytics.CustomStoreMgr ) {
      }
 
 
-    CQ_Analytics.CustomStoreMgr.renderer = function(store, divId) {
+    CQ_Analytics.DataLayerStoreMgr.renderer = function(store, divId) {
 
         // first load data
-		// CQ_Analytics.CustomStoreMgr.loadData();
+		// CQ_Analytics.DataLayerStoreMgr.loadData();
 
 		$CQ("#" + divId).children().remove();
 
 		var name = CQ_Analytics.ProfileDataMgr.getProperty("formattedName");
-		var templateRenderer = CQ_Analytics.CustomStoreMgr.templateRenderer;
+		var templateRenderer = CQ_Analytics.DataLayerStoreMgr.templateRenderer;
 
         // Set title
 		$CQ("#" + divId).addClass("cq-cc-customstore");
@@ -73,21 +73,21 @@ if (CQ_Analytics.CustomStoreMgr ) {
         	var key = $CQ(this).attr("name");
         	$CQ("label[for='customstore-input-" + key + "']").toggleClass('checked');
         	var newValue = (value === true)?"true":"false";
-			CQ_Analytics.CustomStoreMgr.setTraitValue(key,newValue);
+			CQ_Analytics.DataLayerStoreMgr.setTraitValue(key,newValue);
         	//CQ_Analytics.ProfileDataMgr.fireEvent("update");
     	});        
 
     }
 
-    CQ_Analytics.CustomStoreMgr.setTraitValue = function(trait, newValue) {
+    CQ_Analytics.DataLayerStoreMgr.setTraitValue = function(trait, newValue) {
 
-        var data = CQ_Analytics.CustomStoreMgr.data;
+        var data = CQ_Analytics.DataLayerStoreMgr.data;
         if (data) {
             data[trait + '/value'] = newValue;
         }
     };
 
     
-	CQ_Analytics.ClickstreamcloudMgr.register(CQ_Analytics.CustomStoreMgr);
+	CQ_Analytics.ClickstreamcloudMgr.register(CQ_Analytics.DataLayerStoreMgr);
 
 }
