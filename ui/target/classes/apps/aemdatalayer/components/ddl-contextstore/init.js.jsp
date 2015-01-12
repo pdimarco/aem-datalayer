@@ -18,6 +18,6 @@
 %><%@ include file="/libs/foundation/global.jsp" %><%
 %>
 
-if (CQ_Analytics.CustomStoreMgr) {
-	CQ_Analytics.CustomStoreMgr.init();
+if (CQ_Analytics.DataLayerStoreMgr) {
+	CQ_Analytics.DataLayerStoreMgr.init();
 }
